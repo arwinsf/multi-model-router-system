@@ -1,0 +1,54 @@
+# =============================================================================
+# LLM-Routing Energiemessung - Dependencies
+# =============================================================================
+# Optimiert für NVIDIA GPUs (RTX 3090, A100, H100, etc.)
+# -----------------------------------------------------------------------------
+# LLM Inference
+# -----------------------------------------------------------------------------
+# vLLM - Hochperformante Inference Engine für NVIDIA GPUs
+# Unterstützt: Continuous Batching, PagedAttention und Sleep Mode
+# vLLM bringt torch, transformers, safetensors etc. als interne Dependencies mit
+vllm>=0.20.0
+
+# -----------------------------------------------------------------------------
+# GPU Energiemessung (NVIDIA NVML)
+# -----------------------------------------------------------------------------
+nvidia-ml-py>=13.595.45
+
+# -----------------------------------------------------------------------------
+# Konfiguration & Utilities
+# -----------------------------------------------------------------------------
+pyyaml>=6.0.3
+tqdm>=4.67.3
+python-dotenv>=1.0.0
+pandas>=2.3.3
+datasets>=4.4.2
+huggingface_hub>=0.36.2
+
+# -----------------------------------------------------------------------------
+# HTTP Client (vLLM Server-Kommunikation)
+# -----------------------------------------------------------------------------
+httpx>=0.28.0
+
+# -----------------------------------------------------------------------------
+# Terminal-UI (Fullscreen TUI mit Pfeiltasten-Navigation)
+# -----------------------------------------------------------------------------
+textual>=8.2.1
+
+lm-eval==0.4.11
+
+# -----------------------------------------------------------------------------
+# Code-Benchmark (BigCodeBench)
+# -----------------------------------------------------------------------------
+# BigCodeBench liefert Datensatz, Sanitizer und Execution-Engine. Die
+# zusaetzlichen Bibliotheks-Abhaengigkeiten der einzelnen BCB-Tasks (numpy,
+# pandas, sklearn, sympy, etc.) werden im Dockerfile separat aus
+# Requirements/requirements-eval.txt installiert.
+bigcodebench>=0.2.5
+
+# -----------------------------------------------------------------------------
+# Plotting (Experiment-Visualisierung)
+# -----------------------------------------------------------------------------
+matplotlib>=3.10
+plotext>=5.3
+textual-plotext>=1.0.1

@@ -1,0 +1,254 @@
+2026-06-10 07:44:02 | INFO     | Temperatur-Override: 0.0
+2026-06-10 07:44:02 | INFO     | Hybrid-Routing: on
+2026-06-10 07:44:02 | INFO     | ============================================================
+2026-06-10 07:44:02 | INFO     | LLM-Routing Energiemessung - Random-Routing (Vergleichsbasis)
+2026-06-10 07:44:02 | INFO     | Profil: uni
+2026-06-10 07:44:02 | INFO     | Ladbare Modelle: ['qwen3.5-4b', 'qwen3.5-9b', 'qwen3.5-35b-moe', 'qwen3.5-27b']
+2026-06-10 07:44:02 | INFO     | Seed: keiner (zufällig)
+2026-06-10 07:44:02 | INFO     | ============================================================
+2026-06-10 07:44:02 | INFO     | GPU: NVIDIA A100 80GB PCIe
+2026-06-10 07:44:02 | INFO     | NVLink: aktiv
+/usr/local/lib/python3.12/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.6) doesn't match a supported version!
+  warnings.warn(
+2026-06-10 07:44:16 | INFO     | Benchmark: mixed, 400 Samples
+2026-06-10 07:44:16 | INFO     | Ladbare Modelle: ['qwen3.5-4b', 'qwen3.5-9b', 'qwen3.5-35b-moe', 'qwen3.5-27b']
+2026-06-10 07:44:16 | INFO     | Scheduler initialisiert: 4 ladbare Modelle, 2 GPU(s) a 80GB
+2026-06-10 07:44:16 | INFO     |   qwen3.5-4b: 4.06GB (TP=1, 4.1GB/GPU)
+2026-06-10 07:44:16 | INFO     |   qwen3.5-9b: 9.09GB (TP=1, 9.1GB/GPU)
+2026-06-10 07:44:16 | INFO     |   qwen3.5-35b-moe: 24.8GB (TP=1, 24.8GB/GPU)
+2026-06-10 07:44:16 | INFO     |   qwen3.5-27b: 20.1GB (TP=1, 20.1GB/GPU)
+2026-06-10 07:44:16 | INFO     | Starte Messungen: 400 Anfragen (13 Batches, Batch-Size: 32)
+2026-06-10 07:44:16 | INFO     | >>> Energiemessung START (vor initialem Preload)
+2026-06-10 07:44:16 | INFO     | [START] qwen3.5-35b-moe: STOPPED → RUNNING
+2026-06-10 07:44:16 | INFO     |   GPU-Zuweisung: [0], Bedarf/GPU: 34.30 GB (Weights: 24.80 + KV: 8.50 + CUDA: 1.00)
+2026-06-10 07:44:16 | INFO     |   gpu_memory_utilization: 0.6038 (60.4%)
+2026-06-10 07:44:16 | INFO     | [START] qwen3.5-27b: STOPPED → RUNNING
+2026-06-10 07:44:16 | INFO     |   GPU-Zuweisung: [1], Bedarf/GPU: 29.60 GB (Weights: 20.10 + KV: 8.50 + CUDA: 1.00)
+2026-06-10 07:44:16 | INFO     |   gpu_memory_utilization: 0.4950 (49.5%)
+2026-06-10 07:44:16 | INFO     |   nvidia-smi: GPU 0, 4, 81339, 81920
+2026-06-10 07:44:16 | INFO     |   nvidia-smi: GPU 1, 4, 81339, 81920
+2026-06-10 07:44:16 | INFO     | Starte vLLM-Server: qwen3.5-27b auf Port 8004
+2026-06-10 07:44:16 | INFO     |   Modell: cyankiwi/Qwen3.5-27B-AWQ-4bit
+2026-06-10 07:44:16 | INFO     |   GPU Memory: 50%
+2026-06-10 07:44:16 | INFO     |   TP Size: 1
+2026-06-10 07:44:16 | INFO     |   GPU(s): [1]
+2026-06-10 07:44:16 | INFO     |   max_num_seqs: 32
+2026-06-10 07:44:16 | INFO     |   nvidia-smi: GPU 0, 4, 81339, 81920
+2026-06-10 07:44:16 | INFO     |   nvidia-smi: GPU 1, 4, 81339, 81920
+2026-06-10 07:44:16 | INFO     | Starte vLLM-Server: qwen3.5-35b-moe auf Port 8003
+2026-06-10 07:44:16 | INFO     |   Modell: cyankiwi/Qwen3.5-35B-A3B-AWQ-4bit
+2026-06-10 07:44:16 | INFO     |   GPU Memory: 60%
+2026-06-10 07:44:16 | INFO     |   TP Size: 1
+2026-06-10 07:44:16 | INFO     |   GPU(s): [0]
+2026-06-10 07:44:16 | INFO     |   max_num_seqs: 32
+2026-06-10 07:45:56 | INFO     | Server bereit: qwen3.5-27b auf http://127.0.0.1:8004
+2026-06-10 07:45:56 | INFO     |   beobachteter Live-Footprint: 41.13 GB/GPU
+2026-06-10 07:45:56 | INFO     | [START] qwen3.5-9b: STOPPED → RUNNING
+2026-06-10 07:45:56 | INFO     |   GPU-Zuweisung: [1], Bedarf/GPU: 18.59 GB (Weights: 9.09 + KV: 8.50 + CUDA: 1.00)
+2026-06-10 07:45:56 | INFO     |   gpu_memory_utilization: 0.3574 (35.7%)
+2026-06-10 07:45:57 | INFO     |   nvidia-smi: GPU 0, 48897, 32446, 81920
+2026-06-10 07:45:57 | INFO     |   nvidia-smi: GPU 1, 42121, 39222, 81920
+2026-06-10 07:45:57 | INFO     | Starte vLLM-Server: qwen3.5-9b auf Port 8002
+2026-06-10 07:45:57 | INFO     |   Modell: cyankiwi/Qwen3.5-9B-AWQ-4bit
+2026-06-10 07:45:57 | INFO     |   GPU Memory: 36%
+2026-06-10 07:45:57 | INFO     |   TP Size: 1
+2026-06-10 07:45:57 | INFO     |   GPU(s): [1]
+2026-06-10 07:45:57 | INFO     |   max_num_seqs: 32
+2026-06-10 07:46:12 | INFO     | Server bereit: qwen3.5-35b-moe auf http://127.0.0.1:8003
+2026-06-10 07:46:12 | INFO     |   beobachteter Live-Footprint: 47.75 GB/GPU
+2026-06-10 07:46:12 | INFO     | [START] qwen3.5-4b: STOPPED → RUNNING
+2026-06-10 07:46:12 | INFO     |   GPU-Zuweisung: [0], Bedarf/GPU: 13.56 GB (Weights: 4.06 + KV: 8.50 + CUDA: 1.00)
+2026-06-10 07:46:12 | INFO     |   gpu_memory_utilization: 0.2945 (29.4%)
+2026-06-10 07:46:13 | INFO     |   nvidia-smi: GPU 0, 48897, 32446, 81920
+2026-06-10 07:46:13 | INFO     |   nvidia-smi: GPU 1, 42121, 39222, 81920
+2026-06-10 07:46:13 | INFO     | Starte vLLM-Server: qwen3.5-4b auf Port 8001
+2026-06-10 07:46:13 | INFO     |   Modell: cyankiwi/Qwen3.5-4B-AWQ-4bit
+2026-06-10 07:46:13 | INFO     |   GPU Memory: 29%
+2026-06-10 07:46:13 | INFO     |   TP Size: 1
+2026-06-10 07:46:13 | INFO     |   GPU(s): [0]
+2026-06-10 07:46:13 | INFO     |   max_num_seqs: 32
+2026-06-10 07:47:25 | INFO     | Server bereit: qwen3.5-9b auf http://127.0.0.1:8002
+2026-06-10 07:47:25 | INFO     |   beobachteter Live-Footprint: 28.88 GB/GPU
+2026-06-10 07:47:41 | INFO     | Server bereit: qwen3.5-4b auf http://127.0.0.1:8001
+2026-06-10 07:47:41 | INFO     |   beobachteter Live-Footprint: 23.78 GB/GPU
+2026-06-10 07:47:41 | INFO     |   GPU 0: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-10 07:47:41 | INFO     |   GPU 1: 38.9/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-10 07:47:41 | INFO     | Preload: qwen3.5-27b (20.1GB) auf GPU(s) [1], VRAM verbleibend: 118.9GB
+2026-06-10 07:47:41 | INFO     |   GPU 0: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-10 07:47:41 | INFO     |   GPU 1: 10.0/80 GB frei | Running: qwen3.5-9b, qwen3.5-27b | Sleeping: –
+2026-06-10 07:47:41 | INFO     | Preload: qwen3.5-9b (9.09GB) auf GPU(s) [1], VRAM verbleibend: 90.0GB
+2026-06-10 07:47:41 | INFO     |   GPU 0: 32.3/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-10 07:47:41 | INFO     |   GPU 1: 10.0/80 GB frei | Running: qwen3.5-9b, qwen3.5-27b | Sleeping: –
+2026-06-10 07:47:41 | INFO     | Preload: qwen3.5-35b-moe (24.8GB) auf GPU(s) [0], VRAM verbleibend: 42.2GB
+2026-06-10 07:47:41 | INFO     |   GPU 0: 8.5/80 GB frei | Running: qwen3.5-4b, qwen3.5-35b-moe | Sleeping: –
+2026-06-10 07:47:41 | INFO     |   GPU 1: 10.0/80 GB frei | Running: qwen3.5-9b, qwen3.5-27b | Sleeping: –
+2026-06-10 07:47:41 | INFO     | Preload: qwen3.5-4b (4.06GB) auf GPU(s) [0], VRAM verbleibend: 18.5GB
+2026-06-10 07:47:41 | INFO     | Alle Katalog-Modelle erfolgreich preloaded — Headroom für spätere Cold-Starts bleibt erhalten
+2026-06-10 07:47:41 | INFO     | Preloaded: ['qwen3.5-27b', 'qwen3.5-9b', 'qwen3.5-35b-moe', 'qwen3.5-4b']
+2026-06-10 07:47:41 | INFO     | VRAM verbleibend: 18.5GB
+Random-Routing:   0%|          | 0/13 [00:00<?, ?it/s]2026-06-10 07:47:41 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 07:47:41 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 9 Prompt(s), GPU(s) [1]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 07:47:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+Random-Routing:   8%|▊         | 1/13 [16:47<3:21:25, 1007.14s/it]2026-06-10 08:04:28 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:04:28 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [0]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 08:04:28 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+Random-Routing:  15%|█▌        | 2/13 [27:31<2:25:29, 793.55s/it] 2026-06-10 08:15:12 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:15:12 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:15:12 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+Random-Routing:  23%|██▎       | 3/13 [34:53<1:45:33, 633.39s/it]2026-06-10 08:22:35 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:22:35 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:22:35 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+Random-Routing:  31%|███       | 4/13 [42:08<1:23:12, 554.76s/it]2026-06-10 08:29:49 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:29:49 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 7 Prompt(s), GPU(s) [0]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 08:29:49 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [0]
+Random-Routing:  38%|███▊      | 5/13 [48:56<1:06:56, 502.05s/it]2026-06-10 08:36:38 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:36:38 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:36:38 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [0]
+Random-Routing:  46%|████▌     | 6/13 [55:07<53:22, 457.50s/it]  2026-06-10 08:42:49 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:42:49 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:42:49 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+Random-Routing:  54%|█████▍    | 7/13 [1:03:50<47:52, 478.80s/it]2026-06-10 08:51:31 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:51:31 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 7 Prompt(s), GPU(s) [0]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:51:31 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+Random-Routing:  62%|██████▏   | 8/13 [1:10:44<38:10, 458.09s/it]2026-06-10 08:58:25 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 08:58:25 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 7 Prompt(s), GPU(s) [1]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 08:58:25 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+Random-Routing:  69%|██████▉   | 9/13 [1:21:25<34:21, 515.27s/it]2026-06-10 09:09:06 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 09:09:06 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 8 Prompt(s), GPU(s) [1]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [0]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 09:09:06 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+Random-Routing:  77%|███████▋  | 10/13 [1:29:35<25:22, 507.62s/it]2026-06-10 09:17:17 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 09:17:17 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 6 Prompt(s), GPU(s) [0]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 7 Prompt(s), GPU(s) [1]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 09:17:17 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [0]
+Random-Routing:  85%|████████▍ | 11/13 [1:39:53<18:02, 541.22s/it]2026-06-10 09:27:34 | INFO     | [PLAN] 8 Gruppen für 32 Prompts:
+2026-06-10 09:27:34 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 10 Prompt(s), GPU(s) [1]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-10 09:27:34 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+Random-Routing:  92%|█████████▏| 12/13 [1:46:23<08:15, 495.41s/it]2026-06-10 09:34:05 | INFO     | [PLAN] 7 Gruppen für 16 Prompts:
+2026-06-10 09:34:05 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-10 09:34:05 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+Random-Routing: 100%|██████████| 13/13 [1:49:53<00:00, 408.92s/it]Random-Routing: 100%|██████████| 13/13 [1:49:53<00:00, 507.20s/it]
+2026-06-10 09:37:35 | INFO     | ----------------------------------------
+2026-06-10 09:37:35 | INFO     | Random-Routing-Statistik:
+2026-06-10 09:37:35 | INFO     |   qwen3.5-27b: 104/400 (26.0%)
+2026-06-10 09:37:35 | INFO     |   qwen3.5-35b-moe: 103/400 (25.8%)
+2026-06-10 09:37:35 | INFO     |   qwen3.5-4b: 100/400 (25.0%)
+2026-06-10 09:37:35 | INFO     |   qwen3.5-9b: 93/400 (23.2%)
+2026-06-10 09:37:35 | INFO     | Thinking: {'thinking': 215, 'no_thinking': 185}
+2026-06-10 09:37:35 | INFO     | Re-Routes: 0
+2026-06-10 09:37:35 | INFO     | Scheduler-Events: 4
+2026-06-10 09:37:35 | INFO     |   [07:47:41] start: qwen3.5-27b GPU(s)=[1]
+2026-06-10 09:37:35 | INFO     |   [07:47:41] start: qwen3.5-9b GPU(s)=[1]
+2026-06-10 09:37:35 | INFO     |   [07:47:41] start: qwen3.5-35b-moe GPU(s)=[0]
+2026-06-10 09:37:35 | INFO     |   [07:47:41] start: qwen3.5-4b GPU(s)=[0]
+2026-06-10 09:37:35 | INFO     | Scheduler Shutdown: Stoppe alle Modelle
+2026-06-10 09:37:35 | INFO     | [STOP] qwen3.5-4b: running → STOPPED (GPU(s) [0])
+2026-06-10 09:37:35 | INFO     | Stoppe Server: qwen3.5-4b (PID 244766)
+2026-06-10 09:37:36 | INFO     | Server gestoppt: qwen3.5-4b
+2026-06-10 09:37:36 | INFO     |   GPU 0: 32.3/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-10 09:37:36 | INFO     |   GPU 1: 10.0/80 GB frei | Running: qwen3.5-9b, qwen3.5-27b | Sleeping: –
+2026-06-10 09:37:36 | INFO     | [STOP] qwen3.5-9b: running → STOPPED (GPU(s) [1])
+2026-06-10 09:37:36 | INFO     | Stoppe Server: qwen3.5-9b (PID 244391)
+2026-06-10 09:37:37 | INFO     | Server gestoppt: qwen3.5-9b
+2026-06-10 09:37:37 | INFO     |   GPU 0: 32.3/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-10 09:37:37 | INFO     |   GPU 1: 38.9/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-10 09:37:37 | INFO     | [STOP] qwen3.5-35b-moe: running → STOPPED (GPU(s) [0])
+2026-06-10 09:37:37 | INFO     | Stoppe Server: qwen3.5-35b-moe (PID 242815)
+2026-06-10 09:37:38 | INFO     | Server gestoppt: qwen3.5-35b-moe
+2026-06-10 09:37:38 | INFO     |   GPU 0: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-10 09:37:38 | INFO     |   GPU 1: 38.9/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-10 09:37:38 | INFO     | [STOP] qwen3.5-27b: running → STOPPED (GPU(s) [1])
+2026-06-10 09:37:38 | INFO     | Stoppe Server: qwen3.5-27b (PID 242814)
+2026-06-10 09:37:39 | INFO     | Server gestoppt: qwen3.5-27b
+2026-06-10 09:37:39 | INFO     |   GPU 0: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-10 09:37:39 | INFO     |   GPU 1: 80.0/80 GB frei | Running: – | Sleeping: –
+thesis_replay__mmlu_pro: Custom kwargs can be passed to `--metadata` in console (as json string) or to the TaskManager.
+For example --metadata='{"max_seq_lengths":[4096, 8192]}'. For details see task Readme.
+thesis_replay__gpqa: Custom kwargs can be passed to `--metadata` in console (as json string) or to the TaskManager.
+For example --metadata='{"max_seq_lengths":[4096, 8192]}'. For details see task Readme.
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 101630.82it/s]
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 105997.07it/s]
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781084274.546876  251511 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1781084279.343661  255527 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-06-10 09:41:59 | WARNING  | 
+SIGTERM empfangen — räume auf...
+2026-06-10 09:41:59 | INFO     | Cleanup: Beende alle Server-Prozesse...
+2026-06-10 09:41:59 | INFO     | Scheduler Shutdown: Stoppe alle Modelle
+2026-06-10 09:42:00 | INFO     | Evaluation abgeschlossen: 400 Samples, Accuracy: 55.8% | Extraktionen geaendert: 400, Correctness geaendert: 400

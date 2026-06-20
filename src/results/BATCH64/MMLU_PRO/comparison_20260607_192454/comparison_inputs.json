@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-07T19:24:59.013881+00:00",
+  "experiment_dirs": [
+    "src/results/BATCH64/MMLU_PRO/router_mmlu-pro_20260607_020614",
+    "src/results/BATCH64/MMLU_PRO/baseline_mmlu-pro_20260607_034707",
+    "src/results/BATCH64/MMLU_PRO/single_qwen3.5-27b_mmlu-pro_20260606_204645",
+    "src/results/BATCH64/MMLU_PRO/single_qwen3.5-35b-moe_mmlu-pro_20260606_213503",
+    "src/results/BATCH64/MMLU_PRO/single_qwen3.5-9b_mmlu-pro_20260606_225802",
+    "src/results/BATCH64/MMLU_PRO/single_qwen3.5-4b_mmlu-pro_20260607_002327",
+    "src/results/BATCH64/MMLU_PRO/random_mmlu-pro_20260606_180131"
+  ]
+}

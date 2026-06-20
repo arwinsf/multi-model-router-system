@@ -1,0 +1,9 @@
+experiment_name,experiment_alias,profile,experiment_type,benchmark,batch_size,configured_num_samples,num_gpus,per_gpu_vram_gb,measurement_id,scenario,event_index,timestamp,action,model_id,details,phase
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,1,2026-05-29T06:18:19.927067,start,qwen3.5-27b,GPU(s)=[1],startup_preload
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,2,2026-05-29T06:18:19.951097,start,qwen3.5-9b,GPU(s)=[1],startup_preload
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,3,2026-05-29T06:18:19.975004,start,qwen3.5-35b-moe,GPU(s)=[0],startup_preload
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,4,2026-05-29T06:18:19.999056,start,qwen3.5-4b,GPU(s)=[0],startup_preload
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,5,2026-05-29T07:07:56.810195,stop,qwen3.5-4b,,runtime
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,6,2026-05-29T07:07:58.078818,stop,qwen3.5-9b,,runtime
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,7,2026-05-29T07:07:59.299859,stop,qwen3.5-35b-moe,,runtime
+random_gpqa_20260529_070800,,uni,random_routing,gpqa,64,198,2,80,1,random_routing,8,2026-05-29T07:08:00.572786,stop,qwen3.5-27b,,runtime

@@ -1,0 +1,40 @@
+{
+  "profile": "uni",
+  "experiment_type": "baseline",
+  "benchmark": "mmlu-pro",
+  "num_samples": 1000,
+  "batch_size": 64,
+  "measurement_mode": "single",
+  "model": {
+    "id": "qwen3.5-9b",
+    "name": "cyankiwi/Qwen3.5-9B-AWQ-4bit",
+    "vram_gb": 9.09,
+    "enable_thinking": true,
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 2
+  },
+  "hardware": {
+    "per_gpu_vram_gb": 80,
+    "num_gpus": 2,
+    "ram_for_offloading_gb": 128,
+    "nvlink_available": true
+  },
+  "inference": {
+    "vllm": {
+      "dtype": "auto",
+      "max_model_len": 32768,
+      "gpu_memory_utilization": 0.96,
+      "enforce_eager": false
+    }
+  },
+  "evaluation": {
+    "mode": "postprocess",
+    "backend": "lm-eval",
+    "replay_from_saved_generations": true,
+    "backend_version": "0.4.11",
+    "last_evaluation_method": "lm_eval_replay",
+    "last_evaluated_samples": 1000,
+    "last_changed_extractions": 1000,
+    "last_changed_correctness": 1000
+  }
+}

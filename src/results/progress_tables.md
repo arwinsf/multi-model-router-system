@@ -1,0 +1,51 @@
+# Progress Tables
+
+Quelle: `progress.png` und `progress.xlsx` im selben Ordner. Die Werte wurden aus der Excel-Datei gelesen und passend zum Screenshot beschriftet. Accuracy-Werte sind Prozentwerte. Accuracy ist einheitlich mit zwei Nachkommastellen formatiert, EQ-Benchmarkwerte mit einer Nachkommastelle und der Mixed-Durchschnitt mit drei Nachkommastellen.
+
+## Accuracy Scores - BATCH32
+
+| Modell/Router      | BigCodeBench |   GPQA | Livebench | MMLU Pro | Mixed (400) 4AVG |
+| ------------------ | -----------: | -----: | --------: | -------: | ---------------: |
+| Router Temp 0      |       29,70% | 84,80% |    62,70% |   80,30% |           64,60% |
+| Baseline 122B-A10B |       27,70% | 83,80% |    65,30% |   82,30% |           66,10% |
+| 27B                |       26,40% | 84,30% |    61,30% |   82,50% |           63,70% |
+| 35B-A3B            |       27,00% | 78,80% |    62,70% |   79,40% |           63,70% |
+| 9B                 |       22,30% | 74,70% |    55,30% |   74,50% |           57,60% |
+| 4B                 |       17,60% | 65,70% |    51,30% |   69,30% |           51,00% |
+| Random Router      |       23,00% | 79,30% |    56,70% |   76,30% |           58,20% |
+
+## Accuracy Scores - BATCH64
+
+| Modell/Router      | BigCodeBench |   GPQA | Livebench | MMLU Pro |
+| ------------------ | -----------: | -----: | --------: | -------: |
+| Router Temp 0      |       29,10% | 82,80% |    60,00% |   80,60% |
+| Baseline 122B-A10B |       26,40% | 85,40% |    64,00% |   82,80% |
+| 27B                |       25,70% | 84,80% |    62,70% |   82,20% |
+| 35B-A3B            |       27,00% | 81,30% |    66,00% |   80,10% |
+| 9B                 |       23,60% | 77,80% |    54,70% |   76,20% |
+| 4B                 |       16,90% | 71,20% |    49,30% |   69,10% |
+| Random Router      |       23,60% | 75,80% |    54,00% |   75,80% |
+
+## EQ Scores - BATCH32
+
+| Modell/Router      | BigCodeBench | GPQA | Livebench | MMLU Pro | Mixed (400) 4AVG |
+| ------------------ | -----------: | ---: | --------: | -------: | ---------------: |
+| Router Temp 0      |          9,9 |  4,1 |       7,1 |      2,3 |            2,062 |
+| Baseline 122B-A10B |         10,3 |  2,8 |       5,0 |      1,3 |            1,603 |
+| 27B                |          9,7 |  2,8 |       3,9 |      1,3 |            1,651 |
+| 35B-A3B            |         21,8 |  5,7 |       7,9 |      2,4 |            3,201 |
+| 9B                 |          9,7 |  4,0 |       5,5 |      1,6 |            2,395 |
+| 4B                 |         25,9 |  4,3 |       7,6 |      2,0 |            3,021 |
+| Random Router      |          6,8 |  2,0 |       3,3 |      0,9 |            1,177 |
+
+## EQ Scores - BATCH64
+
+| Modell/Router      | BigCodeBench | GPQA | Livebench | MMLU Pro |
+| ------------------ | -----------: | ---: | --------: | -------: |
+| Router Temp 0      |         12,8 |  4,8 |       7,7 |      2,7 |
+| Baseline 122B-A10B |         12,8 |  4,0 |       6,6 |      1,8 |
+| 27B                |         13,0 |  4,3 |       7,4 |      1,9 |
+| 35B-A3B            |         12,4 |  8,4 |      15,0 |      3,4 |
+| 9B                 |         34,9 |  6,1 |       9,3 |      2,3 |
+| 4B                 |         38,7 |  7,5 |       9,9 |      3,1 |
+| Random Router      |          9,9 |  2,7 |       4,1 |      1,1 |

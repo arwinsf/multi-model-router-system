@@ -1,0 +1,9 @@
+experiment_name,experiment_alias,profile,experiment_type,benchmark,batch_size,configured_num_samples,num_gpus,per_gpu_vram_gb,measurement_id,scenario,event_index,timestamp,action,model_id,details,phase
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,1,2026-05-29T08:00:39.317736,start,qwen3.5-35b-moe,GPU(s)=[0],startup_preload
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,2,2026-05-29T08:00:39.347289,start,qwen3.5-4b,GPU(s)=[0],startup_preload
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,3,2026-05-29T08:00:39.375115,start,qwen3.5-27b,GPU(s)=[1],startup_preload
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,4,2026-05-29T08:00:39.402135,start,qwen3.5-9b,GPU(s)=[1],startup_preload
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,5,2026-05-29T08:05:03.120529,stop,qwen3.5-4b,,runtime
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,6,2026-05-29T08:05:04.092485,stop,qwen3.5-9b,,runtime
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,7,2026-05-29T08:05:05.209996,stop,qwen3.5-35b-moe,,runtime
+router_bigcodebench_20260529_080855,,uni,router,bigcodebench,32,148,2,80,1,router_scheduler,8,2026-05-29T08:05:06.279377,stop,qwen3.5-27b,,runtime

@@ -1,0 +1,89 @@
+{
+  "average": {
+    "run_count": 4,
+    "total_samples": 1600,
+    "mean_accuracy": 0.64625,
+    "mean_dynamic_energy_joules": 1131079.1791953677,
+    "mean_dynamic_energy_watthours": 314.18866088760217,
+    "mean_duration_seconds": 3817.424371578498,
+    "mean_millijoules_per_output_token": 693.4349346820143,
+    "mean_tokens_per_second": 428.45990269287853,
+    "mean_eq_score": 2.0615789976028642
+  },
+  "source_experiments": [
+    {
+      "source_index": 1,
+      "path": "src/results/BATCH32/MIXED/router_mixed_20260609_222856",
+      "result_file": "src/results/BATCH32/MIXED/router_mixed_20260609_222856/results.json",
+      "display_name": "router_mixed_20260609_222856",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 2,
+      "path": "src/results/BATCH32/MIXED/router_mixed_20260610_023200",
+      "result_file": "src/results/BATCH32/MIXED/router_mixed_20260610_023200/results.json",
+      "display_name": "router_mixed_20260610_023200",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 3,
+      "path": "src/results/BATCH32/MIXED/router_mixed_20260610_180944",
+      "result_file": "src/results/BATCH32/MIXED/router_mixed_20260610_180944/results.json",
+      "display_name": "router_mixed_20260610_180944",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 4,
+      "path": "src/results/BATCH32/MIXED/router_mixed_20260611_211326",
+      "result_file": "src/results/BATCH32/MIXED/router_mixed_20260611_211326/results.json",
+      "display_name": "router_mixed_20260611_211326",
+      "measurement_count": 1,
+      "sample_count": 400
+    }
+  ],
+  "averaging": {
+    "created_at": "2026-06-12T08:10:25.644268+00:00",
+    "source_result_count": 4,
+    "measurement_count": 4,
+    "compatibility_signature": {
+      "benchmark": "mixed",
+      "experiment_type": "router",
+      "batch_size": 32,
+      "scenarios": [
+        "router_scheduler"
+      ]
+    }
+  },
+  "average_details": {
+    "evaluated_samples": 1600,
+    "correct_samples": 1034,
+    "mean_accuracy_formatted": "0.646250",
+    "mean_accuracy_percent": 64.625,
+    "mean_accuracy_percent_formatted": "64.625%",
+    "weighted_accuracy": 0.64625,
+    "weighted_accuracy_formatted": "0.646250",
+    "weighted_accuracy_percent_formatted": "64.625%",
+    "accuracy_values": [
+      0.65,
+      0.6425,
+      0.64,
+      0.6525
+    ],
+    "accuracy_min": 0.64,
+    "accuracy_max": 0.6525,
+    "accuracy_std": 0.005153882032022074,
+    "mean_eq_score_formatted": "2.061579",
+    "eq_score_values": [
+      2.1373887467801995,
+      2.139157038905088,
+      2.0581838258252545,
+      1.9115863789009144
+    ],
+    "eq_score_min": 1.9115863789009144,
+    "eq_score_max": 2.139157038905088,
+    "eq_score_std": 0.09256725044405284
+  }
+}

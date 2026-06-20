@@ -1,0 +1,9 @@
+experiment_name,experiment_alias,profile,experiment_type,benchmark,batch_size,configured_num_samples,num_gpus,per_gpu_vram_gb,measurement_id,scenario,event_index,timestamp,action,model_id,details,phase
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,1,2026-06-06T16:06:31.689160,start,qwen3.5-27b,GPU(s)=[1],startup_preload
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,2,2026-06-06T16:06:31.713036,start,qwen3.5-9b,GPU(s)=[1],startup_preload
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,3,2026-06-06T16:06:31.737082,start,qwen3.5-35b-moe,GPU(s)=[0],startup_preload
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,4,2026-06-06T16:06:31.761229,start,qwen3.5-4b,GPU(s)=[0],startup_preload
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,5,2026-06-06T18:01:26.922301,stop,qwen3.5-4b,,runtime
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,6,2026-06-06T18:01:28.742783,stop,qwen3.5-9b,,runtime
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,7,2026-06-06T18:01:29.911909,stop,qwen3.5-35b-moe,,runtime
+random_mmlu-pro_20260606_180131,,uni,random_routing,mmlu-pro,64,1000,2,80,1,random_routing,8,2026-06-06T18:01:31.181362,stop,qwen3.5-27b,,runtime

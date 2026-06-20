@@ -1,0 +1,9 @@
+experiment_name,experiment_alias,profile,experiment_type,benchmark,batch_size,configured_num_samples,num_gpus,per_gpu_vram_gb,measurement_id,scenario,event_index,timestamp,action,model_id,details,phase
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,1,2026-06-04T14:43:06.503637,start,qwen3.5-35b-moe,GPU(s)=[0],startup_preload
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,2,2026-06-04T14:43:06.530977,start,qwen3.5-4b,GPU(s)=[0],startup_preload
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,3,2026-06-04T14:43:06.557585,start,qwen3.5-27b,GPU(s)=[1],startup_preload
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,4,2026-06-04T14:43:06.583163,start,qwen3.5-9b,GPU(s)=[1],startup_preload
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,5,2026-06-04T16:02:01.239054,stop,qwen3.5-4b,,runtime
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,6,2026-06-04T16:02:02.212207,stop,qwen3.5-9b,,runtime
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,7,2026-06-04T16:02:03.381120,stop,qwen3.5-35b-moe,,runtime
+router_mmlu-pro_20260604_160204,,uni,router,mmlu-pro,32,1000,2,80,1,router_scheduler,8,2026-06-04T16:02:04.348515,stop,qwen3.5-27b,,runtime

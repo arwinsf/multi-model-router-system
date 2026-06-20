@@ -1,0 +1,89 @@
+{
+  "average": {
+    "run_count": 4,
+    "total_samples": 1600,
+    "mean_accuracy": 0.6375,
+    "mean_dynamic_energy_joules": 1391804.651405111,
+    "mean_dynamic_energy_watthours": 386.61240316808636,
+    "mean_duration_seconds": 3508.1070564326365,
+    "mean_millijoules_per_output_token": 896.3630978924957,
+    "mean_tokens_per_second": 443.54339339936143,
+    "mean_eq_score": 1.6513737344710238
+  },
+  "source_experiments": [
+    {
+      "source_index": 1,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_024507",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_024507/results.json",
+      "display_name": "single_qwen3.5-27b_mixed_20260611_024507",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 2,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_050132",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_050132/results.json",
+      "display_name": "single_qwen3.5-27b_mixed_20260611_050132",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 3,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_181840",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_181840/results.json",
+      "display_name": "single_qwen3.5-27b_mixed_20260611_181840",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 4,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_191847",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-27b_mixed_20260611_191847/results.json",
+      "display_name": "single_qwen3.5-27b_mixed_20260611_191847",
+      "measurement_count": 1,
+      "sample_count": 400
+    }
+  ],
+  "averaging": {
+    "created_at": "2026-06-12T08:10:00.892382+00:00",
+    "source_result_count": 4,
+    "measurement_count": 4,
+    "compatibility_signature": {
+      "benchmark": "mixed",
+      "experiment_type": "baseline",
+      "batch_size": 32,
+      "scenarios": [
+        "qwen3.5-27b_reasoning"
+      ]
+    }
+  },
+  "average_details": {
+    "evaluated_samples": 1600,
+    "correct_samples": 1020,
+    "mean_accuracy_formatted": "0.637500",
+    "mean_accuracy_percent": 63.74999999999999,
+    "mean_accuracy_percent_formatted": "63.750%",
+    "weighted_accuracy": 0.6375,
+    "weighted_accuracy_formatted": "0.637500",
+    "weighted_accuracy_percent_formatted": "63.750%",
+    "accuracy_values": [
+      0.635,
+      0.6525,
+      0.63,
+      0.6325
+    ],
+    "accuracy_min": 0.63,
+    "accuracy_max": 0.6525,
+    "accuracy_std": 0.008838834764831837,
+    "mean_eq_score_formatted": "1.651374",
+    "eq_score_values": [
+      1.558210150736936,
+      1.6435056728078208,
+      1.7191345771088993,
+      1.6846445372304393
+    ],
+    "eq_score_min": 1.558210150736936,
+    "eq_score_max": 1.7191345771088993,
+    "eq_score_std": 0.06008293817666797
+  }
+}

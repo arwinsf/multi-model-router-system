@@ -1,0 +1,117 @@
+# =============================================================================
+# Konfiguration: Lokal (RTX 3090, 24 GB VRAM)
+# =============================================================================
+# Profil für lokale Entwicklung und Tests auf einer RTX 3090.
+# Das Router-Experiment nutzt die Zielmodelle, die zusammen mit Router,
+# KV-Reserve und CUDA-Overhead sinnvoll ladbar sind: 4B und 9B.
+# Die lokale Always-Large-Baseline nutzt ebenfalls das 9B-Modell; größere Modelle
+# sind nur im Uni-Profil aktiv.
+
+# Hardware-Ressourcen
+hardware:
+  per_gpu_vram_gb: 24 # RTX 3090: 24 GB GDDR6X
+  ram_for_offloading_gb: 24 # Für vLLM Sleep Mode (Offloading in CPU-RAM)
+  num_gpus: 1
+
+# GPU-Einstellungen (Energiemessung)
+gpu:
+  sampling_interval: 0.1
+
+# Router-Modell (LLM-as-a-Router, immer geladen, Non-Reasoning)
+router:
+  model: "cyankiwi/Qwen3.5-2B-AWQ-4bit"
+  vram_gb: 2.5
+  max_output_tokens: 10
+  max_model_len: 8192
+  enforce_eager: true
+  min_process_budget_gb: 3.2
+
+# Zielmodell-Katalog (lokales Router-Setup, ladbar auf 24GB VRAM)
+# Alle Modelle nutzen AWQ-4bit Quantisierung für fairen Vergleich.
+# tier: Fähigkeitsstufe 1 (einfach) bis 4 (komplex) für Routing-Entscheidungen
+models:
+  - id: "qwen3.5-4b"
+    name: "cyankiwi/Qwen3.5-4B-AWQ-4bit"
+    vram_gb: 4.06
+    tier: 1
+    gpu: 0 # Einzige GPU verfügbar
+    description: "4B dense model: Direct-response tier for simple factual recall, definitions, everyday trivia, short paraphrases, simple formatting tasks, straightforward extraction, obvious multiple-choice questions, and routine writing or summarization without deep reasoning"
+    sampling:
+      temperature: 0.0
+      top_p: 0.95
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      repetition_penalty: 1.0
+    # Benchmark-Sampling (Non-Thinking-Modus): top_p=1.0, presence_penalty=2.0 per Qwen-Empfehlung
+    sampling_nothinking:
+      temperature: 0.0
+      top_p: 1.0
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 2.0
+      repetition_penalty: 1.0
+
+  - id: "qwen3.5-9b"
+    name: "cyankiwi/Qwen3.5-9B-AWQ-4bit"
+    vram_gb: 9.09
+    tier: 2
+    gpu: 0 # Einzige GPU verfügbar
+    description: "9B dense model: Highest local router tier for non-obvious but bounded tasks: reading comprehension, school-level science or humanities questions, short structured explanations, straightforward math word problems, routine code explanation, harder formatting tasks, and multiple-choice questions that require some reasoning"
+    sampling:
+      temperature: 0.0
+      top_p: 0.95
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 1.5
+      repetition_penalty: 1.0
+    sampling_nothinking:
+      temperature: 0.0
+      top_p: 1.0
+      top_k: 20
+      min_p: 0.0
+      presence_penalty: 2.0
+      repetition_penalty: 1.0
+
+# Baseline (Always-Large mit Reasoning, separat vom Router-Setup)
+# Qwen3.5-9B: lokale Baseline für die RTX 3090, AWQ-4bit (~9 GB VRAM)
+baseline:
+  model_id: "qwen3.5-9b"
+  model_name: "cyankiwi/Qwen3.5-9B-AWQ-4bit"
+  vram_gb: 9.09
+  enable_thinking: true
+  sampling:
+    temperature: 0.0
+    top_p: 0.95
+    top_k: 20
+    min_p: 0.0
+    presence_penalty: 1.5
+    repetition_penalty: 1.0
+
+# Scheduler-Einstellungen
+scheduler:
+  preload_strategy: "fill_small_first"
+  eviction_policy: "lru"
+  kv_cache_reserve_gb: 1.75
+  cuda_context_overhead_gb: 0.5
+  startup_headroom_gb: 0.25
+
+# Inferenz-Einstellungen (vLLM-Engine-Parameter, Sampling kommt pro Modell)
+# Lokal ist das Zielmodell-Kontextfenster wegen 24GB VRAM bewusst auf 16K begrenzt.
+inference:
+  max_concurrent_requests_per_model: 8
+  vllm:
+    dtype: "auto"
+    max_model_len: 16384
+    gpu_memory_utilization: 0.96
+    enforce_eager: false
+
+# vLLM-Server-Einstellungen
+server:
+  base_port: 8001
+  host: "127.0.0.1"
+
+# Experiment-Einstellungen
+experiment:
+  batch_size: 32
+  output_dir: "results"

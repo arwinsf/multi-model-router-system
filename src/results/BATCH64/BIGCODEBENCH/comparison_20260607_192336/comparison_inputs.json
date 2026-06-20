@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-07T19:23:38.471273+00:00",
+  "experiment_dirs": [
+    "src/results/BATCH64/BIGCODEBENCH/router_bigcodebench_20260601_112324",
+    "src/results/BATCH64/BIGCODEBENCH/baseline_bigcodebench_20260601_102945",
+    "src/results/BATCH64/BIGCODEBENCH/single_qwen3.5-27b_bigcodebench_20260531_195535",
+    "src/results/BATCH64/BIGCODEBENCH/single_qwen3.5-35b-moe_bigcodebench_20260531_194853",
+    "src/results/BATCH64/BIGCODEBENCH/single_qwen3.5-9b_bigcodebench_20260531_193431",
+    "src/results/BATCH64/BIGCODEBENCH/single_qwen3.5-4b_bigcodebench_20260531_192836",
+    "src/results/BATCH64/BIGCODEBENCH/random_bigcodebench_20260531_191208"
+  ]
+}

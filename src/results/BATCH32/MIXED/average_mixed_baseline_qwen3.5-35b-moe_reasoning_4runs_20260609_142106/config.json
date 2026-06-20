@@ -1,0 +1,84 @@
+{
+  "profile": "uni",
+  "experiment_type": "baseline",
+  "benchmark": "mixed",
+  "num_samples": 400,
+  "batch_size": 32,
+  "measurement_mode": "average",
+  "model": {
+    "id": "qwen3.5-35b-moe",
+    "name": "cyankiwi/Qwen3.5-35B-A3B-AWQ-4bit",
+    "vram_gb": 24.8,
+    "enable_thinking": true,
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 2
+  },
+  "hardware": {
+    "per_gpu_vram_gb": 80,
+    "num_gpus": 2,
+    "ram_for_offloading_gb": 128,
+    "nvlink_available": true
+  },
+  "inference": {
+    "vllm": {
+      "dtype": "auto",
+      "max_model_len": 32768,
+      "gpu_memory_utilization": 0.95,
+      "enforce_eager": false
+    }
+  },
+  "evaluation": {
+    "mode": "postprocess",
+    "backend": "lm-eval",
+    "subtask_backends": {
+      "livebench-da": "livebench_data_analysis",
+      "gpqa": "lm-eval",
+      "bigcodebench": "bigcodebench_execution",
+      "mmlu-pro": "lm-eval"
+    },
+    "replay_from_saved_generations": true,
+    "backend_version": "0.4.11",
+    "last_evaluation_method": "lm_eval_replay",
+    "last_evaluated_samples": 400,
+    "last_changed_extractions": 400,
+    "last_changed_correctness": 400
+  },
+  "average_run_count": 4,
+  "average_source_result_count": 4,
+  "average_created_at": "2026-06-09T14:21:06.223919+00:00",
+  "averaged_from": [
+    {
+      "source_index": 1,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260608_232747",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260608_232747/results.json",
+      "display_name": "single_qwen3.5-35b-moe_mixed_20260608_232747",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 2,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_000549",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_000549/results.json",
+      "display_name": "single_qwen3.5-35b-moe_mixed_20260609_000549",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 3,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_005307",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_005307/results.json",
+      "display_name": "single_qwen3.5-35b-moe_mixed_20260609_005307",
+      "measurement_count": 1,
+      "sample_count": 400
+    },
+    {
+      "source_index": 4,
+      "path": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_012847",
+      "result_file": "src/results/BATCH32/MIXED/single_qwen3.5-35b-moe_mixed_20260609_012847/results.json",
+      "display_name": "single_qwen3.5-35b-moe_mixed_20260609_012847",
+      "measurement_count": 1,
+      "sample_count": 400
+    }
+  ],
+  "experiment_alias": "35B-A3B"
+}

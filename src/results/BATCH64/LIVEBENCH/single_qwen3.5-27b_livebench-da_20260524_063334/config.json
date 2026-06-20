@@ -1,0 +1,38 @@
+{
+  "profile": "uni",
+  "experiment_type": "baseline",
+  "benchmark": "livebench-da",
+  "num_samples": 150,
+  "batch_size": 64,
+  "measurement_mode": "single",
+  "model": {
+    "id": "qwen3.5-27b",
+    "name": "cyankiwi/Qwen3.5-27B-AWQ-4bit",
+    "vram_gb": 20.1,
+    "enable_thinking": true,
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 2
+  },
+  "hardware": {
+    "per_gpu_vram_gb": 80,
+    "num_gpus": 2,
+    "ram_for_offloading_gb": 128,
+    "nvlink_available": true
+  },
+  "inference": {
+    "vllm": {
+      "dtype": "auto",
+      "max_model_len": 32768,
+      "gpu_memory_utilization": 0.95,
+      "enforce_eager": false
+    }
+  },
+  "evaluation": {
+    "mode": "postprocess",
+    "backend": "livebench_data_analysis",
+    "last_evaluation_method": "postprocess",
+    "last_evaluated_samples": 150,
+    "last_changed_extractions": 150,
+    "last_changed_correctness": 150
+  }
+}

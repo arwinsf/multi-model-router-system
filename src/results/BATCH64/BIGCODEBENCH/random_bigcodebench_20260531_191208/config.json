@@ -1,0 +1,66 @@
+{
+  "profile": "uni",
+  "experiment_type": "random_routing",
+  "benchmark": "bigcodebench",
+  "num_samples": 148,
+  "batch_size": 64,
+  "measurement_mode": "single",
+  "seed": null,
+  "router": "random",
+  "models": [
+    {
+      "id": "qwen3.5-4b",
+      "name": "cyankiwi/Qwen3.5-4B-AWQ-4bit",
+      "vram_gb": 4.06,
+      "tier": 1
+    },
+    {
+      "id": "qwen3.5-9b",
+      "name": "cyankiwi/Qwen3.5-9B-AWQ-4bit",
+      "vram_gb": 9.09,
+      "tier": 2
+    },
+    {
+      "id": "qwen3.5-35b-moe",
+      "name": "cyankiwi/Qwen3.5-35B-A3B-AWQ-4bit",
+      "vram_gb": 24.8,
+      "tier": 3
+    },
+    {
+      "id": "qwen3.5-27b",
+      "name": "cyankiwi/Qwen3.5-27B-AWQ-4bit",
+      "vram_gb": 20.1,
+      "tier": 4
+    }
+  ],
+  "hardware": {
+    "per_gpu_vram_gb": 80,
+    "num_gpus": 2,
+    "ram_for_offloading_gb": 128,
+    "nvlink_available": true
+  },
+  "scheduler": {
+    "preload_strategy": "fill_small_first",
+    "eviction_policy": "lru",
+    "hybrid_routing": true,
+    "hybrid_max_tier_distance": 1,
+    "kv_cache_reserve_gb": 8.5,
+    "cuda_context_overhead_gb": 1
+  },
+  "inference": {
+    "vllm": {
+      "dtype": "auto",
+      "max_model_len": 32768,
+      "gpu_memory_utilization": 0.96,
+      "enforce_eager": false
+    }
+  },
+  "evaluation": {
+    "mode": "postprocess",
+    "backend": "bigcodebench_execution",
+    "last_evaluation_method": "postprocess",
+    "last_evaluated_samples": 148,
+    "last_changed_extractions": 148,
+    "last_changed_correctness": 148
+  }
+}

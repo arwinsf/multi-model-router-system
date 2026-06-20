@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-07T19:22:06.728561+00:00",
+  "experiment_dirs": [
+    "src/results/BATCH32/GPQA/router_gpqa_20260528_090332",
+    "src/results/BATCH32/GPQA/baseline_gpqa_20260512_223049",
+    "src/results/BATCH32/GPQA/single_qwen3.5-27b_gpqa_20260513_140750",
+    "src/results/BATCH32/GPQA/single_qwen3.5-35b-moe_gpqa_20260513_131339",
+    "src/results/BATCH32/GPQA/single_qwen3.5-9b_gpqa_20260513_005049",
+    "src/results/BATCH32/GPQA/single_qwen3.5-4b_gpqa_20260513_001349",
+    "src/results/BATCH32/GPQA/random_gpqa_20260513_185712"
+  ]
+}

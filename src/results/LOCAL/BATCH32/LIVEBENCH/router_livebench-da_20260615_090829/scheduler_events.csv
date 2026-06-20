@@ -1,0 +1,5 @@
+experiment_name,experiment_alias,profile,experiment_type,benchmark,batch_size,configured_num_samples,num_gpus,per_gpu_vram_gb,measurement_id,scenario,event_index,timestamp,action,model_id,details,phase
+router_livebench-da_20260615_090829,Router,local,router,livebench-da,32,150,1,24,1,router_scheduler,1,2026-06-15T08:46:32.388402,start,qwen3.5-9b,GPU(s)=[0],startup_preload
+router_livebench-da_20260615_090829,Router,local,router,livebench-da,32,150,1,24,1,router_scheduler,2,2026-06-15T08:46:32.398448,start,qwen3.5-4b,GPU(s)=[0],startup_preload
+router_livebench-da_20260615_090829,Router,local,router,livebench-da,32,150,1,24,1,router_scheduler,3,2026-06-15T09:08:28.780664,stop,qwen3.5-4b,,runtime
+router_livebench-da_20260615_090829,Router,local,router,livebench-da,32,150,1,24,1,router_scheduler,4,2026-06-15T09:08:29.195713,stop,qwen3.5-9b,,runtime

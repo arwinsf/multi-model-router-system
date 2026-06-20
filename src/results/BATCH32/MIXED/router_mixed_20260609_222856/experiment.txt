@@ -1,0 +1,448 @@
+2026-06-09 21:25:50 | INFO     | Temperatur-Override: 0.0
+2026-06-09 21:25:50 | INFO     | Hybrid-Routing: on
+2026-06-09 21:25:50 | INFO     | ============================================================
+2026-06-09 21:25:50 | INFO     | LLM-Routing Energiemessung - Router + Scheduler
+2026-06-09 21:25:50 | INFO     | Profil: uni
+2026-06-09 21:25:50 | INFO     | Router: cyankiwi/Qwen3.5-2B-AWQ-4bit
+2026-06-09 21:25:50 | INFO     | Ladbare Modelle: ['qwen3.5-4b', 'qwen3.5-9b', 'qwen3.5-35b-moe', 'qwen3.5-27b']
+2026-06-09 21:25:50 | INFO     | ============================================================
+2026-06-09 21:25:50 | INFO     | GPU: NVIDIA A100 80GB PCIe
+2026-06-09 21:25:50 | INFO     | NVLink: aktiv
+/usr/local/lib/python3.12/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.6) doesn't match a supported version!
+  warnings.warn(
+2026-06-09 21:26:04 | INFO     | Benchmark: mixed, 400 Samples
+2026-06-09 21:26:04 | INFO     | Ladbare Modelle: ['qwen3.5-4b', 'qwen3.5-9b', 'qwen3.5-35b-moe', 'qwen3.5-27b']
+2026-06-09 21:26:04 | INFO     | Router-Budget: 4.50GB -> gpu_memory_utilization 0.0563
+2026-06-09 21:26:04 | INFO     | Router-Runtime: max_model_len=16384, enforce_eager=True
+2026-06-09 21:26:04 | INFO     | Scheduler initialisiert: 4 ladbare Modelle, 2 GPU(s) a 80GB
+2026-06-09 21:26:04 | INFO     |   qwen3.5-4b: 4.06GB (TP=1, 4.1GB/GPU)
+2026-06-09 21:26:04 | INFO     |   qwen3.5-9b: 9.09GB (TP=1, 9.1GB/GPU)
+2026-06-09 21:26:04 | INFO     |   qwen3.5-35b-moe: 24.8GB (TP=1, 24.8GB/GPU)
+2026-06-09 21:26:04 | INFO     |   qwen3.5-27b: 20.1GB (TP=1, 20.1GB/GPU)
+2026-06-09 21:26:04 | INFO     | Starte Messungen: 400 Anfragen (13 Batches, Batch-Size: 32)
+2026-06-09 21:26:04 | INFO     | >>> Energiemessung START (vor Router-Load und initialem Preload)
+2026-06-09 21:26:04 | INFO     | [START] qwen3.5-27b: STOPPED → RUNNING
+2026-06-09 21:26:04 | INFO     |   GPU-Zuweisung: [1], Bedarf/GPU: 29.60 GB (Weights: 20.10 + KV: 8.50 + CUDA: 1.00)
+2026-06-09 21:26:04 | INFO     |   gpu_memory_utilization: 0.4950 (49.5%)
+2026-06-09 21:26:04 | INFO     |   nvidia-smi: GPU 0, 4, 81339, 81920
+2026-06-09 21:26:04 | INFO     |   nvidia-smi: GPU 1, 4, 81339, 81920
+2026-06-09 21:26:04 | INFO     | Starte vLLM-Server: qwen3.5-27b auf Port 8004
+2026-06-09 21:26:04 | INFO     |   Modell: cyankiwi/Qwen3.5-27B-AWQ-4bit
+2026-06-09 21:26:04 | INFO     |   GPU Memory: 50%
+2026-06-09 21:26:04 | INFO     |   TP Size: 1
+2026-06-09 21:26:04 | INFO     |   GPU(s): [1]
+2026-06-09 21:26:04 | INFO     |   max_num_seqs: 32
+2026-06-09 21:26:04 | INFO     | Server gestartet (non-blocking): qwen3.5-27b auf Port 8004
+2026-06-09 21:26:10 | INFO     | Lade Router-Modell: cyankiwi/Qwen3.5-2B-AWQ-4bit (gmu=0.0563, dtype=auto, tp=1, max_model_len=16384, enforce_eager=True)
+[transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+/usr/local/lib/python3.12/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.6) doesn't match a supported version!
+  warnings.warn(
+(EngineCore pid=186829) [transformers] `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=186829) Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+(EngineCore pid=186829) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.68it/s]
+(EngineCore pid=186829) Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  2.68it/s]
+(EngineCore pid=186829) 
+2026-06-09 21:26:33 | INFO     | Gültige Router-Labels: ['1N', '1T', '2N', '2T', '3N', '3T', '4N', '4T']
+2026-06-09 21:26:33 | INFO     | Router-Modell geladen: cyankiwi/Qwen3.5-2B-AWQ-4bit
+2026-06-09 21:26:33 | INFO     | Router-System-Prompt:
+You are an energy-aware routing controller for a multi-model LLM system.
+For each user prompt, choose the lowest model tier that is still comfortably
+likely to answer correctly and decide whether reasoning mode should be enabled.
+
+Return ONLY one label in the form <tier number><N|T>.
+Do not output any explanation, words, punctuation, or extra text.
+
+N = direct-answer mode. Use only for simple factual recall, definitions,
+straightforward extraction, translation, or obvious questions with no ambiguity.
+T = reasoning mode. Use whenever the task benefits from deliberate step-by-step
+thinking, including multiple-choice questions, math, code, analysis, comparisons,
+or anything where reasoning improves correctness.
+
+Available model tiers:
+- 1: 4B dense model: Direct-response tier for simple factual recall, definitions, everyday trivia, short paraphrases, simple formatting tasks, straightforward extraction, obvious multiple-choice questions, and routine writing or summarization without deep reasoning
+- 2: 9B dense model: Moderate-capability tier for non-obvious but bounded tasks: reading comprehension, school-level science or humanities questions, short structured explanations, straightforward math word problems, routine code explanation, harder formatting tasks, and multiple-choice questions that require some reasoning
+- 3: 35B A3B MoE model: Advanced reasoning tier for harder benchmark-style problems with specialized knowledge: multi-step math, analytical comparisons, synthesis across several facts, code debugging or refactoring, and domain questions where Tier 2 feels risky but Tier 4 is not yet necessary. Use when you want to save energy compared to Tier 4 but still need next to strong reasoning and expert knowledge. Otherwise prefer Tier 4 for maximum correctness. Can work well for coding tasks with limited context length (e.g. <8K tokens). For this tier, strongly prefer T over N. The MoE architecture benetits significantly from CoT reasoning. Only use N for genuinely trivial sub-tasks or formatting related stuff.
+- 4: 27B dense model: Highest-capability dense tier for proof-style mathematics, formal logic, complex algorithm design, from-scratch code generation, difficult debugging with many interacting constraints, long-horizon synthesis, hard to very hard multiple choice questions, multi-step organic chemistry syntheses with 3+ reaction steps or retrosynthesis, numerical physics calculations requiring precise formula application, and any task where failure of a smaller tier would be costly or certain. If in doubt about complexity or risk, prefer this tier.
+
+Routing policy:
+- First choose the lowest tier that is likely to answer correctly with a
+    safety margin. Then decide between N and T.
+- Lower tiers have less reasoning headroom. If you choose tier 1 or tier 2
+    for anything beyond direct recall or literal rewriting, prefer T.
+- Tier 1 with N should be rare and reserved for single-hop facts, literal
+    extraction, short translation, or routine rewriting with no reasoning.
+- Default to T for any task involving reasoning, analysis, multiple-choice
+    with plausible distractors, math, code, science, synthesis, or multi-step
+    logic.
+- If a multiple-choice question looks answerable by immediate recognition and
+    one option is clearly correct without careful elimination, N is acceptable.
+- Otherwise use N only for mostly clearly trivial tasks: simple factual recall,
+    definitions, greetings, straightforward extraction, translation, or
+    routine rewriting where no reasoning is needed.
+- When the cost of a wrong answer is high, or when the task appears ambiguous,
+    subtle, adversarial, or benchmark-style, prefer T.
+- Do not avoid the highest tier just to save energy. Use it when expert knowledge,
+    difficult distractors, formal reasoning, complex code generation, or
+    many interacting constraints make failure of the 2nd highest tier plausible.
+- Difficult multiple-choice questions, nuanced domain knowledge, formal
+    reasoning, tricky math, code analysis, or long dependency chains should
+    lean upward in tier and use T.
+- If the task is clearly direct-recognition and confidence is high, choose N.
+- If the task is genuinely borderline or uncertainty remains, choose T.
+- If the task is borderline between two tiers, prefer the larger tier.
+- The lower / worse you go in tier (esp. Tier 1), the even more likely you should be to
+    choose T over N for definitive non-trivial tasks.
+- Questions involving organic chemistry reactions, stereochemistry,
+    retrosynthesis, or molecular biology mechanisms should ALWAYS use T,
+    even if they appear to be simple recall. These domains require
+    elimination reasoning.
+- "All X except", "Which is NOT", negation-style questions always require
+    T mode regardless of apparent difficulty.
+- Lastly, don't decide based on the amount of Router few shot examples that are provided
+    to you for each tier. The few shot examples are just examples, not a checklist. Use
+    your best judgment based on the above principles.
+2026-06-09 21:26:33 | INFO     | [START] qwen3.5-35b-moe: STOPPED → RUNNING
+2026-06-09 21:26:33 | INFO     |   GPU-Zuweisung: [0], Bedarf/GPU: 34.30 GB (Weights: 24.80 + KV: 8.50 + CUDA: 1.00)
+2026-06-09 21:26:33 | INFO     |   gpu_memory_utilization: 0.6038 (60.4%)
+2026-06-09 21:26:33 | INFO     |   nvidia-smi: GPU 0, 5125, 76218, 81920
+2026-06-09 21:26:33 | INFO     |   nvidia-smi: GPU 1, 4, 81339, 81920
+2026-06-09 21:26:33 | INFO     | Starte vLLM-Server: qwen3.5-35b-moe auf Port 8003
+2026-06-09 21:26:33 | INFO     |   Modell: cyankiwi/Qwen3.5-35B-A3B-AWQ-4bit
+2026-06-09 21:26:33 | INFO     |   GPU Memory: 60%
+2026-06-09 21:26:33 | INFO     |   TP Size: 1
+2026-06-09 21:26:33 | INFO     |   GPU(s): [0]
+2026-06-09 21:26:33 | INFO     |   max_num_seqs: 32
+2026-06-09 21:28:32 | INFO     | Server bereit: qwen3.5-35b-moe auf http://127.0.0.1:8003
+2026-06-09 21:28:32 | INFO     |   beobachteter Live-Footprint: 47.75 GB/GPU
+2026-06-09 21:28:32 | INFO     | [START] qwen3.5-4b: STOPPED → RUNNING
+2026-06-09 21:28:32 | INFO     |   GPU-Zuweisung: [0], Bedarf/GPU: 13.56 GB (Weights: 4.06 + KV: 8.50 + CUDA: 1.00)
+2026-06-09 21:28:32 | INFO     |   gpu_memory_utilization: 0.2945 (29.4%)
+2026-06-09 21:28:32 | INFO     |   nvidia-smi: GPU 0, 54018, 27324, 81920
+2026-06-09 21:28:32 | INFO     |   nvidia-smi: GPU 1, 42121, 39222, 81920
+2026-06-09 21:28:32 | INFO     | Starte vLLM-Server: qwen3.5-4b auf Port 8001
+2026-06-09 21:28:32 | INFO     |   Modell: cyankiwi/Qwen3.5-4B-AWQ-4bit
+2026-06-09 21:28:32 | INFO     |   GPU Memory: 29%
+2026-06-09 21:28:32 | INFO     |   TP Size: 1
+2026-06-09 21:28:32 | INFO     |   GPU(s): [0]
+2026-06-09 21:28:32 | INFO     |   max_num_seqs: 32
+2026-06-09 21:30:04 | INFO     | Server bereit: qwen3.5-4b auf http://127.0.0.1:8001
+2026-06-09 21:30:04 | INFO     |   beobachteter Live-Footprint: 23.78 GB/GPU
+2026-06-09 21:30:04 | INFO     | Server bereit: qwen3.5-27b auf http://127.0.0.1:8004
+2026-06-09 21:30:04 | INFO     | [START] qwen3.5-9b: STOPPED → RUNNING
+2026-06-09 21:30:04 | INFO     |   GPU-Zuweisung: [1], Bedarf/GPU: 18.59 GB (Weights: 9.09 + KV: 8.50 + CUDA: 1.00)
+2026-06-09 21:30:04 | INFO     |   gpu_memory_utilization: 0.3574 (35.7%)
+2026-06-09 21:30:04 | INFO     |   nvidia-smi: GPU 0, 78366, 2977, 81920
+2026-06-09 21:30:04 | INFO     |   nvidia-smi: GPU 1, 42121, 39222, 81920
+2026-06-09 21:30:04 | INFO     | Starte vLLM-Server: qwen3.5-9b auf Port 8002
+2026-06-09 21:30:04 | INFO     |   Modell: cyankiwi/Qwen3.5-9B-AWQ-4bit
+2026-06-09 21:30:04 | INFO     |   GPU Memory: 36%
+2026-06-09 21:30:04 | INFO     |   TP Size: 1
+2026-06-09 21:30:04 | INFO     |   GPU(s): [1]
+2026-06-09 21:30:04 | INFO     |   max_num_seqs: 32
+2026-06-09 21:31:34 | INFO     | Server bereit: qwen3.5-9b auf http://127.0.0.1:8002
+2026-06-09 21:31:34 | INFO     |   beobachteter Live-Footprint: 28.88 GB/GPU
+2026-06-09 21:31:34 | INFO     |   GPU 0: 27.8/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-09 21:31:34 | INFO     |   GPU 1: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-09 21:31:34 | INFO     | Preload: qwen3.5-35b-moe (24.8GB) auf GPU(s) [0], VRAM verbleibend: 107.8GB
+2026-06-09 21:31:34 | INFO     |   GPU 0: 4.0/80 GB frei | Running: qwen3.5-35b-moe, qwen3.5-4b | Sleeping: –
+2026-06-09 21:31:34 | INFO     |   GPU 1: 80.0/80 GB frei | Running: – | Sleeping: –
+2026-06-09 21:31:34 | INFO     | Preload: qwen3.5-4b (4.06GB) auf GPU(s) [0], VRAM verbleibend: 84.0GB
+2026-06-09 21:31:34 | INFO     |   GPU 0: 4.0/80 GB frei | Running: qwen3.5-35b-moe, qwen3.5-4b | Sleeping: –
+2026-06-09 21:31:34 | INFO     |   GPU 1: 50.4/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-09 21:31:34 | INFO     | Preload: qwen3.5-27b (20.1GB) auf GPU(s) [1], VRAM verbleibend: 54.4GB
+2026-06-09 21:31:34 | INFO     |   GPU 0: 4.0/80 GB frei | Running: qwen3.5-35b-moe, qwen3.5-4b | Sleeping: –
+2026-06-09 21:31:34 | INFO     |   GPU 1: 21.5/80 GB frei | Running: qwen3.5-27b, qwen3.5-9b | Sleeping: –
+2026-06-09 21:31:34 | INFO     | Preload: qwen3.5-9b (9.09GB) auf GPU(s) [1], VRAM verbleibend: 25.5GB
+2026-06-09 21:31:34 | INFO     | Alle Katalog-Modelle erfolgreich preloaded — Headroom für spätere Cold-Starts bleibt erhalten
+2026-06-09 21:31:34 | INFO     | Preloaded: ['qwen3.5-35b-moe', 'qwen3.5-4b', 'qwen3.5-27b', 'qwen3.5-9b']
+2026-06-09 21:31:34 | INFO     | VRAM verbleibend: 25.5GB
+Router+Scheduler:   0%|          | 0/13 [00:00<?, ?it/s]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  12%|█▎        | 4/32 [00:00<00:00, 39.05it/s][A
+Rendering prompts:  56%|█████▋    | 18/32 [00:00<00:00, 95.77it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 108.86it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:01<00:40,  1.31s/it, est. speed input: 1547.96 toks/s, output: 2.29 toks/s][A
+Processed prompts:   9%|▉         | 3/32 [00:01<00:12,  2.41it/s, est. speed input: 3892.62 toks/s, output: 5.94 toks/s][A
+Processed prompts:  22%|██▏       | 7/32 [00:01<00:04,  5.95it/s, est. speed input: 8095.65 toks/s, output: 12.22 toks/s][A
+Processed prompts:  34%|███▍      | 11/32 [00:01<00:02,  9.05it/s, est. speed input: 11496.55 toks/s, output: 17.15 toks/s][A
+Processed prompts:  44%|████▍     | 14/32 [00:02<00:01, 10.45it/s, est. speed input: 13840.05 toks/s, output: 19.75 toks/s][A
+Processed prompts:  56%|█████▋    | 18/32 [00:02<00:01, 12.81it/s, est. speed input: 16134.76 toks/s, output: 23.16 toks/s][A
+Processed prompts:  69%|██████▉   | 22/32 [00:02<00:00, 15.04it/s, est. speed input: 18728.50 toks/s, output: 26.23 toks/s][A
+Processed prompts:  78%|███████▊  | 25/32 [00:02<00:00, 16.64it/s, est. speed input: 21024.59 toks/s, output: 28.34 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:02<00:00, 16.64it/s, est. speed input: 28014.57 toks/s, output: 35.61 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:02<00:00, 11.87it/s, est. speed input: 28014.57 toks/s, output: 35.61 toks/s]
+2026-06-09 21:31:37 | INFO     | [PLAN] 4 Gruppen für 32 Prompts:
+2026-06-09 21:31:37 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 21:31:37 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 21 Prompt(s), GPU(s) [0]
+2026-06-09 21:31:37 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 21:31:37 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+Router+Scheduler:   8%|▊         | 1/13 [06:51<1:22:22, 411.90s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  59%|█████▉    | 19/32 [00:00<00:00, 187.76it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 186.45it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:13,  2.32it/s, est. speed input: 4700.60 toks/s, output: 6.97 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.35it/s, est. speed input: 6198.16 toks/s, output: 9.42 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:04,  6.02it/s, est. speed input: 12450.91 toks/s, output: 15.35 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.19it/s, est. speed input: 22647.31 toks/s, output: 30.95 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.71it/s, est. speed input: 24998.86 toks/s, output: 34.86 toks/s][A
+Processed prompts:  66%|██████▌   | 21/32 [00:01<00:00, 19.21it/s, est. speed input: 28276.71 toks/s, output: 39.96 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.21it/s, est. speed input: 41031.15 toks/s, output: 59.35 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.78it/s, est. speed input: 41031.15 toks/s, output: 59.35 toks/s]
+2026-06-09 21:38:28 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 21:38:28 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 17 Prompt(s), GPU(s) [0]
+2026-06-09 21:38:28 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 21:38:28 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-09 21:38:28 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-09 21:38:28 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+Router+Scheduler:  15%|█▌        | 2/13 [10:26<54:16, 296.07s/it]  
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  62%|██████▎   | 20/32 [00:00<00:00, 196.27it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 200.83it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.42it/s, est. speed input: 5221.46 toks/s, output: 7.27 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.44it/s, est. speed input: 6701.06 toks/s, output: 9.72 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:03,  7.67it/s, est. speed input: 13111.89 toks/s, output: 18.33 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:01<00:01, 11.82it/s, est. speed input: 20375.14 toks/s, output: 26.41 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.41it/s, est. speed input: 23456.49 toks/s, output: 31.81 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 16.31it/s, est. speed input: 25689.43 toks/s, output: 35.89 toks/s][A
+Processed prompts:  66%|██████▌   | 21/32 [00:01<00:00, 20.34it/s, est. speed input: 28931.12 toks/s, output: 41.14 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.34it/s, est. speed input: 42211.34 toks/s, output: 61.11 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.37it/s, est. speed input: 42211.34 toks/s, output: 61.11 toks/s]
+2026-06-09 21:42:03 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 21:42:03 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 21 Prompt(s), GPU(s) [0]
+2026-06-09 21:42:03 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-09 21:42:03 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 21:42:03 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 21:42:03 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+Router+Scheduler:  23%|██▎       | 3/13 [13:38<41:24, 248.40s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  66%|██████▌   | 21/32 [00:00<00:00, 205.80it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 206.09it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.39it/s, est. speed input: 4432.12 toks/s, output: 7.16 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.41it/s, est. speed input: 6109.46 toks/s, output: 9.62 toks/s][A
+Processed prompts:  19%|█▉        | 6/32 [00:00<00:02,  9.32it/s, est. speed input: 14070.96 toks/s, output: 21.63 toks/s][A
+Processed prompts:  31%|███▏      | 10/32 [00:01<00:01, 12.76it/s, est. speed input: 19108.86 toks/s, output: 28.84 toks/s][A
+Processed prompts:  44%|████▍     | 14/32 [00:01<00:01, 15.02it/s, est. speed input: 22214.31 toks/s, output: 33.78 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.38it/s, est. speed input: 24606.46 toks/s, output: 35.70 toks/s][A
+Processed prompts:  78%|███████▊  | 25/32 [00:01<00:00, 27.18it/s, est. speed input: 33233.32 toks/s, output: 48.88 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 27.18it/s, est. speed input: 41355.56 toks/s, output: 61.56 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.51it/s, est. speed input: 41355.56 toks/s, output: 61.56 toks/s]
+2026-06-09 21:45:14 | INFO     | [PLAN] 4 Gruppen für 32 Prompts:
+2026-06-09 21:45:14 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-09 21:45:14 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 7 Prompt(s), GPU(s) [1]
+2026-06-09 21:45:14 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 4 Prompt(s), GPU(s) [0]
+2026-06-09 21:45:14 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 15 Prompt(s), GPU(s) [0]
+Router+Scheduler:  31%|███       | 4/13 [17:33<36:28, 243.11s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  62%|██████▎   | 20/32 [00:00<00:00, 199.35it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 207.83it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:13,  2.37it/s, est. speed input: 5352.58 toks/s, output: 7.10 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.39it/s, est. speed input: 6691.83 toks/s, output: 9.56 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:03,  7.51it/s, est. speed input: 15177.63 toks/s, output: 17.96 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:01<00:01, 11.57it/s, est. speed input: 19427.23 toks/s, output: 25.87 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.10it/s, est. speed input: 22516.11 toks/s, output: 31.15 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.86it/s, est. speed input: 24649.51 toks/s, output: 35.04 toks/s][A
+Processed prompts:  62%|██████▎   | 20/32 [00:01<00:00, 17.03it/s, est. speed input: 27865.41 toks/s, output: 37.48 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 17.03it/s, est. speed input: 40934.89 toks/s, output: 57.25 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.08it/s, est. speed input: 40934.89 toks/s, output: 57.25 toks/s]
+2026-06-09 21:49:09 | INFO     | [PLAN] 4 Gruppen für 32 Prompts:
+2026-06-09 21:49:09 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 21:49:09 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 21:49:09 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 21 Prompt(s), GPU(s) [0]
+2026-06-09 21:49:09 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 2 Prompt(s), GPU(s) [0]
+Router+Scheduler:  38%|███▊      | 5/13 [21:23<31:47, 238.49s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  56%|█████▋    | 18/32 [00:00<00:00, 174.89it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 184.34it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.44it/s, est. speed input: 4716.95 toks/s, output: 7.33 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.47it/s, est. speed input: 6343.03 toks/s, output: 9.79 toks/s][A
+Processed prompts:  19%|█▉        | 6/32 [00:00<00:02,  9.57it/s, est. speed input: 14245.06 toks/s, output: 22.17 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:01<00:02, 11.40it/s, est. speed input: 19713.38 toks/s, output: 26.62 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.21it/s, est. speed input: 23318.39 toks/s, output: 32.09 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.83it/s, est. speed input: 25436.05 toks/s, output: 35.80 toks/s][A
+Processed prompts:  66%|██████▌   | 21/32 [00:01<00:00, 19.40it/s, est. speed input: 28729.71 toks/s, output: 40.68 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.40it/s, est. speed input: 42335.26 toks/s, output: 60.36 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.12it/s, est. speed input: 42335.26 toks/s, output: 60.36 toks/s]
+2026-06-09 21:53:00 | INFO     | [PLAN] 6 Gruppen für 32 Prompts:
+2026-06-09 21:53:00 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 21 Prompt(s), GPU(s) [0]
+2026-06-09 21:53:00 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 21:53:00 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-09 21:53:00 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-09 21:53:00 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 2 Prompt(s), GPU(s) [1]
+2026-06-09 21:53:00 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+Router+Scheduler:  46%|████▌     | 6/13 [25:30<28:08, 241.23s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  53%|█████▎    | 17/32 [00:00<00:00, 162.58it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 162.00it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.56it/s, est. speed input: 4865.93 toks/s, output: 7.68 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.54it/s, est. speed input: 6446.49 toks/s, output: 10.04 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:03,  7.57it/s, est. speed input: 14048.25 toks/s, output: 18.41 toks/s][A
+Processed prompts:  25%|██▌       | 8/32 [00:01<00:02, 10.00it/s, est. speed input: 18422.07 toks/s, output: 23.51 toks/s][A
+Processed prompts:  38%|███▊      | 12/32 [00:01<00:01, 13.05it/s, est. speed input: 21825.22 toks/s, output: 29.26 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 16.59it/s, est. speed input: 25566.52 toks/s, output: 35.46 toks/s][A
+Processed prompts:  62%|██████▎   | 20/32 [00:01<00:00, 16.62it/s, est. speed input: 26946.00 toks/s, output: 37.08 toks/s][A
+Processed prompts:  97%|█████████▋| 31/32 [00:01<00:00, 32.70it/s, est. speed input: 39815.10 toks/s, output: 53.54 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 32.70it/s, est. speed input: 41340.63 toks/s, output: 55.25 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 18.41it/s, est. speed input: 41340.63 toks/s, output: 55.25 toks/s]
+2026-06-09 21:57:06 | INFO     | [PLAN] 6 Gruppen für 32 Prompts:
+2026-06-09 21:57:06 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 21:57:06 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 19 Prompt(s), GPU(s) [0]
+2026-06-09 21:57:06 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 21:57:06 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-09 21:57:06 | INFO     |   qwen3.5-4b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-09 21:57:06 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+Router+Scheduler:  54%|█████▍    | 7/13 [30:05<25:13, 252.26s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  56%|█████▋    | 18/32 [00:00<00:00, 171.87it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 175.66it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:13,  2.33it/s, est. speed input: 7809.28 toks/s, output: 6.99 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:09,  3.33it/s, est. speed input: 8167.96 toks/s, output: 9.39 toks/s][A
+Processed prompts:  19%|█▉        | 6/32 [00:00<00:02,  9.23it/s, est. speed input: 15067.56 toks/s, output: 21.32 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:01<00:02, 11.04it/s, est. speed input: 18809.42 toks/s, output: 25.67 toks/s][A
+Processed prompts:  44%|████▍     | 14/32 [00:01<00:01, 15.40it/s, est. speed input: 25427.67 toks/s, output: 33.41 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.14it/s, est. speed input: 25888.66 toks/s, output: 34.86 toks/s][A
+Processed prompts:  66%|██████▌   | 21/32 [00:01<00:00, 18.07it/s, est. speed input: 28524.25 toks/s, output: 39.11 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 18.07it/s, est. speed input: 41726.32 toks/s, output: 56.93 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 18.97it/s, est. speed input: 41726.32 toks/s, output: 56.93 toks/s]
+2026-06-09 22:01:41 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 22:01:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 25 Prompt(s), GPU(s) [0]
+2026-06-09 22:01:41 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 22:01:41 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+2026-06-09 22:01:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-09 22:01:41 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+Router+Scheduler:  62%|██████▏   | 8/13 [34:05<20:41, 248.29s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  66%|██████▌   | 21/32 [00:00<00:00, 198.39it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 167.41it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:11,  2.61it/s, est. speed input: 4747.85 toks/s, output: 7.82 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.57it/s, est. speed input: 6558.16 toks/s, output: 10.15 toks/s][A
+Processed prompts:  19%|█▉        | 6/32 [00:00<00:02,  9.59it/s, est. speed input: 14757.85 toks/s, output: 22.53 toks/s][A
+Processed prompts:  31%|███▏      | 10/32 [00:01<00:01, 13.03it/s, est. speed input: 19407.54 toks/s, output: 29.82 toks/s][A
+Processed prompts:  44%|████▍     | 14/32 [00:01<00:01, 15.19it/s, est. speed input: 22876.28 toks/s, output: 34.68 toks/s][A
+Processed prompts:  56%|█████▋    | 18/32 [00:01<00:00, 17.35it/s, est. speed input: 25520.57 toks/s, output: 38.90 toks/s][A
+Processed prompts:  81%|████████▏ | 26/32 [00:01<00:00, 28.57it/s, est. speed input: 34459.58 toks/s, output: 51.97 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 28.57it/s, est. speed input: 41451.92 toks/s, output: 62.41 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.80it/s, est. speed input: 41451.92 toks/s, output: 62.41 toks/s]
+2026-06-09 22:05:41 | INFO     | [PLAN] 4 Gruppen für 32 Prompts:
+2026-06-09 22:05:41 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 22:05:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 5 Prompt(s), GPU(s) [0]
+2026-06-09 22:05:41 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 22:05:41 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 17 Prompt(s), GPU(s) [0]
+Router+Scheduler:  69%|██████▉   | 9/13 [38:27<16:50, 252.65s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  62%|██████▎   | 20/32 [00:00<00:00, 199.15it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 198.19it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.44it/s, est. speed input: 5068.41 toks/s, output: 7.33 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.48it/s, est. speed input: 6961.53 toks/s, output: 9.82 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:03,  7.68it/s, est. speed input: 12785.29 toks/s, output: 18.41 toks/s][A
+Processed prompts:  31%|███▏      | 10/32 [00:01<00:01, 13.47it/s, est. speed input: 19793.37 toks/s, output: 29.36 toks/s][A
+Processed prompts:  44%|████▍     | 14/32 [00:01<00:01, 15.57it/s, est. speed input: 23534.67 toks/s, output: 34.33 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.20it/s, est. speed input: 24638.06 toks/s, output: 35.64 toks/s][A
+Processed prompts:  69%|██████▉   | 22/32 [00:01<00:00, 20.80it/s, est. speed input: 28863.53 toks/s, output: 42.54 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.80it/s, est. speed input: 42081.50 toks/s, output: 60.25 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.08it/s, est. speed input: 42081.50 toks/s, output: 60.25 toks/s]
+2026-06-09 22:10:03 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 22:10:03 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 5 Prompt(s), GPU(s) [1]
+2026-06-09 22:10:03 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 17 Prompt(s), GPU(s) [0]
+2026-06-09 22:10:03 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+2026-06-09 22:10:03 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 6 Prompt(s), GPU(s) [1]
+2026-06-09 22:10:03 | INFO     |   qwen3.5-9b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+Router+Scheduler:  77%|███████▋  | 10/13 [43:08<13:04, 261.52s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  62%|██████▎   | 20/32 [00:00<00:00, 192.50it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 188.04it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:12,  2.45it/s, est. speed input: 6697.68 toks/s, output: 7.36 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.46it/s, est. speed input: 7820.86 toks/s, output: 9.79 toks/s][A
+Processed prompts:  19%|█▉        | 6/32 [00:00<00:02,  9.49it/s, est. speed input: 15662.30 toks/s, output: 22.05 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:01<00:02, 11.32it/s, est. speed input: 20067.76 toks/s, output: 26.49 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.10it/s, est. speed input: 23482.52 toks/s, output: 31.91 toks/s][A
+Processed prompts:  53%|█████▎    | 17/32 [00:01<00:00, 15.77it/s, est. speed input: 25498.95 toks/s, output: 35.65 toks/s][A
+Processed prompts:  66%|██████▌   | 21/32 [00:01<00:00, 19.64it/s, est. speed input: 29233.57 toks/s, output: 40.75 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.64it/s, est. speed input: 42503.22 toks/s, output: 60.44 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 20.14it/s, est. speed input: 42503.22 toks/s, output: 60.44 toks/s]
+2026-06-09 22:14:45 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 22:14:45 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 9 Prompt(s), GPU(s) [1]
+2026-06-09 22:14:45 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 22:14:45 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 17 Prompt(s), GPU(s) [0]
+2026-06-09 22:14:45 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-09 22:14:45 | INFO     |   qwen3.5-27b [RUNNING] Non-Thinking: 1 Prompt(s), GPU(s) [1]
+Router+Scheduler:  85%|████████▍ | 11/13 [46:43<08:14, 247.28s/it]
+Rendering prompts:   0%|          | 0/32 [00:00<?, ?it/s][A
+Rendering prompts:  44%|████▍     | 14/32 [00:00<00:00, 127.64it/s][ARendering prompts: 100%|██████████| 32/32 [00:00<00:00, 157.77it/s]
+
+Processed prompts:   0%|          | 0/32 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   3%|▎         | 1/32 [00:00<00:11,  2.69it/s, est. speed input: 5194.20 toks/s, output: 8.06 toks/s][A
+Processed prompts:   6%|▋         | 2/32 [00:00<00:08,  3.70it/s, est. speed input: 6821.39 toks/s, output: 10.50 toks/s][A
+Processed prompts:  16%|█▌        | 5/32 [00:00<00:03,  8.04it/s, est. speed input: 15615.33 toks/s, output: 19.47 toks/s][A
+Processed prompts:  28%|██▊       | 9/32 [00:00<00:01, 12.20it/s, est. speed input: 20419.65 toks/s, output: 27.72 toks/s][A
+Processed prompts:  41%|████      | 13/32 [00:01<00:01, 14.83it/s, est. speed input: 24103.25 toks/s, output: 33.24 toks/s][A
+Processed prompts:  50%|█████     | 16/32 [00:01<00:01, 14.83it/s, est. speed input: 26054.08 toks/s, output: 34.90 toks/s][A
+Processed prompts:  62%|██████▎   | 20/32 [00:01<00:00, 17.97it/s, est. speed input: 29421.56 toks/s, output: 39.41 toks/s][A
+Processed prompts: 100%|██████████| 32/32 [00:01<00:00, 17.97it/s, est. speed input: 43318.72 toks/s, output: 59.58 toks/s][AProcessed prompts: 100%|██████████| 32/32 [00:01<00:00, 19.85it/s, est. speed input: 43318.72 toks/s, output: 59.58 toks/s]
+2026-06-09 22:18:20 | INFO     | [PLAN] 5 Gruppen für 32 Prompts:
+2026-06-09 22:18:20 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 21 Prompt(s), GPU(s) [0]
+2026-06-09 22:18:20 | INFO     |   qwen3.5-4b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+2026-06-09 22:18:20 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 22:18:20 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 4 Prompt(s), GPU(s) [1]
+2026-06-09 22:18:20 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 3 Prompt(s), GPU(s) [0]
+Router+Scheduler:  92%|█████████▏| 12/13 [52:20<04:34, 274.39s/it]
+Rendering prompts:   0%|          | 0/16 [00:00<?, ?it/s][ARendering prompts: 100%|██████████| 16/16 [00:00<00:00, 194.64it/s]
+
+Processed prompts:   0%|          | 0/16 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   6%|▋         | 1/16 [00:00<00:07,  2.05it/s, est. speed input: 3895.78 toks/s, output: 6.16 toks/s][A
+Processed prompts:  12%|█▎        | 2/16 [00:00<00:04,  3.23it/s, est. speed input: 5679.23 toks/s, output: 8.93 toks/s][A
+Processed prompts:  62%|██████▎   | 10/16 [00:00<00:00, 19.02it/s, est. speed input: 24752.79 toks/s, output: 38.13 toks/s][A
+Processed prompts: 100%|██████████| 16/16 [00:00<00:00, 19.02it/s, est. speed input: 39818.79 toks/s, output: 59.02 toks/s][AProcessed prompts: 100%|██████████| 16/16 [00:00<00:00, 19.66it/s, est. speed input: 39818.79 toks/s, output: 59.02 toks/s]
+2026-06-09 22:23:55 | INFO     | [PLAN] 4 Gruppen für 16 Prompts:
+2026-06-09 22:23:55 | INFO     |   qwen3.5-35b-moe [RUNNING] Non-Thinking: 11 Prompt(s), GPU(s) [0]
+2026-06-09 22:23:55 | INFO     |   qwen3.5-27b [RUNNING] Thinking: 1 Prompt(s), GPU(s) [1]
+2026-06-09 22:23:55 | INFO     |   qwen3.5-9b [RUNNING] Non-Thinking: 3 Prompt(s), GPU(s) [1]
+2026-06-09 22:23:55 | INFO     |   qwen3.5-35b-moe [RUNNING] Thinking: 1 Prompt(s), GPU(s) [0]
+Router+Scheduler: 100%|██████████| 13/13 [56:01<00:00, 258.45s/it]Router+Scheduler: 100%|██████████| 13/13 [56:01<00:00, 258.61s/it]
+2026-06-09 22:27:36 | INFO     | >>> Energiemessung STOP (nach Inferenz, vor Modell-Entladen)
+2026-06-09 22:27:36 | INFO     | ----------------------------------------
+2026-06-09 22:27:36 | INFO     | Routing-Statistik:
+2026-06-09 22:27:36 | INFO     |   qwen3.5-27b: 50/400 (12.5%)
+2026-06-09 22:27:36 | INFO     |   qwen3.5-35b-moe: 280/400 (70.0%)
+2026-06-09 22:27:36 | INFO     |   qwen3.5-4b: 6/400 (1.5%)
+2026-06-09 22:27:36 | INFO     |   qwen3.5-9b: 64/400 (16.0%)
+2026-06-09 22:27:36 | INFO     | Thinking: {'thinking': 90, 'no_thinking': 310}
+2026-06-09 22:27:36 | INFO     | Re-Routes: 0
+2026-06-09 22:27:36 | INFO     | Scheduler-Events: 4
+2026-06-09 22:27:36 | INFO     |   [21:31:34] start: qwen3.5-35b-moe GPU(s)=[0]
+2026-06-09 22:27:36 | INFO     |   [21:31:34] start: qwen3.5-4b GPU(s)=[0]
+2026-06-09 22:27:36 | INFO     |   [21:31:34] start: qwen3.5-27b GPU(s)=[1]
+2026-06-09 22:27:36 | INFO     |   [21:31:34] start: qwen3.5-9b GPU(s)=[1]
+2026-06-09 22:27:38 | INFO     | Router-Modell entladen: cyankiwi/Qwen3.5-2B-AWQ-4bit
+2026-06-09 22:27:38 | INFO     | Scheduler Shutdown: Stoppe alle Modelle
+2026-06-09 22:27:38 | INFO     | [STOP] qwen3.5-4b: running → STOPPED (GPU(s) [0])
+2026-06-09 22:27:38 | INFO     | Stoppe Server: qwen3.5-4b (PID 188396)
+2026-06-09 22:27:39 | INFO     | Server gestoppt: qwen3.5-4b
+2026-06-09 22:27:39 | INFO     |   GPU 0: 27.8/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-09 22:27:39 | INFO     |   GPU 1: 21.5/80 GB frei | Running: qwen3.5-27b, qwen3.5-9b | Sleeping: –
+2026-06-09 22:27:39 | INFO     | [STOP] qwen3.5-9b: running → STOPPED (GPU(s) [1])
+2026-06-09 22:27:39 | INFO     | Stoppe Server: qwen3.5-9b (PID 189199)
+2026-06-09 22:27:40 | INFO     | Server gestoppt: qwen3.5-9b
+2026-06-09 22:27:40 | INFO     |   GPU 0: 27.8/80 GB frei | Running: qwen3.5-35b-moe | Sleeping: –
+2026-06-09 22:27:40 | INFO     |   GPU 1: 50.4/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-09 22:27:40 | INFO     | [STOP] qwen3.5-35b-moe: running → STOPPED (GPU(s) [0])
+2026-06-09 22:27:40 | INFO     | Stoppe Server: qwen3.5-35b-moe (PID 187196)
+2026-06-09 22:27:42 | INFO     | Server gestoppt: qwen3.5-35b-moe
+2026-06-09 22:27:42 | INFO     |   GPU 0: 75.5/80 GB frei | Running: – | Sleeping: –
+2026-06-09 22:27:42 | INFO     |   GPU 1: 50.4/80 GB frei | Running: qwen3.5-27b | Sleeping: –
+2026-06-09 22:27:42 | INFO     | [STOP] qwen3.5-27b: running → STOPPED (GPU(s) [1])
+2026-06-09 22:27:42 | INFO     | Stoppe Server: qwen3.5-27b (PID 186214)
+2026-06-09 22:27:43 | INFO     | Server gestoppt: qwen3.5-27b
+2026-06-09 22:27:43 | INFO     |   GPU 0: 75.5/80 GB frei | Running: – | Sleeping: –
+2026-06-09 22:27:43 | INFO     |   GPU 1: 80.0/80 GB frei | Running: – | Sleeping: –
+thesis_replay__gpqa: Custom kwargs can be passed to `--metadata` in console (as json string) or to the TaskManager.
+For example --metadata='{"max_seq_lengths":[4096, 8192]}'. For details see task Readme.
+thesis_replay__mmlu_pro: Custom kwargs can be passed to `--metadata` in console (as json string) or to the TaskManager.
+For example --metadata='{"max_seq_lengths":[4096, 8192]}'. For details see task Readme.
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 45799.34it/s]
+  0%|          | 0/100 [00:00<?, ?it/s]100%|██████████| 100/100 [00:00<00:00, 104674.42it/s]
+2026-06-09 22:27:43 | INFO     | Starte BigCodeBench-Evaluation in Subprozess (100 Samples)
+<frozen runpy>:128: RuntimeWarning: 'src.evaluation.bigcodebench_execution' found in sys.modules after import of package 'src.evaluation', but prior to execution of 'src.evaluation.bigcodebench_execution'; this may result in unpredictable behaviour
+/usr/local/lib/python3.12/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.6) doesn't match a supported version!
+  warnings.warn(
+2026-06-09 22:28:56 | INFO     | BigCodeBench-Subprozess abgeschlossen
+2026-06-09 22:28:56 | INFO     | Evaluation abgeschlossen: 400 Samples, Accuracy: 65.0% | Extraktionen geaendert: 400, Correctness geaendert: 400

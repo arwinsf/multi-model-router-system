@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-07T19:24:26.392632+00:00",
+  "experiment_dirs": [
+    "src/results/BATCH64/LIVEBENCH/router_livebench-da_20260528_172901",
+    "src/results/BATCH64/LIVEBENCH/baseline_livebench-da_20260524_052823",
+    "src/results/BATCH64/LIVEBENCH/single_qwen3.5-27b_livebench-da_20260524_063334",
+    "src/results/BATCH64/LIVEBENCH/single_qwen3.5-35b-moe_livebench-da_20260524_061857",
+    "src/results/BATCH64/LIVEBENCH/single_qwen3.5-9b_livebench-da_20260524_060407",
+    "src/results/BATCH64/LIVEBENCH/single_qwen3.5-4b_livebench-da_20260524_053902",
+    "src/results/BATCH64/LIVEBENCH/random_livebench-da_20260524_070230"
+  ]
+}

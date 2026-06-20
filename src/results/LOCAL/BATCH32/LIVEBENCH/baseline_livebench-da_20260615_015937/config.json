@@ -1,0 +1,39 @@
+{
+  "profile": "local",
+  "experiment_type": "baseline",
+  "benchmark": "livebench-da",
+  "num_samples": 150,
+  "batch_size": 32,
+  "measurement_mode": "single",
+  "model": {
+    "id": "qwen3.5-9b",
+    "name": "cyankiwi/Qwen3.5-9B-AWQ-4bit",
+    "vram_gb": 9.09,
+    "enable_thinking": true,
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1
+  },
+  "hardware": {
+    "per_gpu_vram_gb": 24,
+    "num_gpus": 1,
+    "ram_for_offloading_gb": 24,
+    "nvlink_available": false
+  },
+  "inference": {
+    "vllm": {
+      "dtype": "auto",
+      "max_model_len": 16384,
+      "gpu_memory_utilization": 0.96,
+      "enforce_eager": false
+    }
+  },
+  "evaluation": {
+    "mode": "postprocess",
+    "backend": "livebench_data_analysis",
+    "last_evaluation_method": "postprocess",
+    "last_evaluated_samples": 150,
+    "last_changed_extractions": 150,
+    "last_changed_correctness": 150
+  },
+  "experiment_alias": "Baseline 9B"
+}

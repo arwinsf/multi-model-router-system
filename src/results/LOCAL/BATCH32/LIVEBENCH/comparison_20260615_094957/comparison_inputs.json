@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-15T07:49:58.422929+00:00",
+  "experiment_dirs": [
+    "src/results/LOCAL/BATCH32/LIVEBENCH/router_livebench-da_20260615_090829",
+    "src/results/LOCAL/BATCH32/LIVEBENCH/baseline_livebench-da_20260615_015937",
+    "src/results/LOCAL/BATCH32/LIVEBENCH/random_livebench-da_20260615_094724"
+  ]
+}
