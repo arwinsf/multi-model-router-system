@@ -51,6 +51,30 @@ set +a
 hf auth whoami
 ```
 
+## Erstellung des Docker Images
+
+Ein Docker-Image ist nicht unbedingt notwendig, ich habe meinen Container zum Beispiel mit 2 Symlinks erstellt:
+
+```bash
+docker create \
+ --name {CONTAINER_NAME} \
+ --device nvidia.com/gpu=all \
+ --interactive \
+ --tty \
+ --restart unless-stopped \
+ --ipc=host \
+ --shm-size=16g \
+ --volume {CODE_REPOSITORY_PATH}:/workspace \
+ --volume {HF_MODELS_PATH}:/workspace/hf-models \
+ {IMAGE_NAME}
+```
+
+Der Teil kann wahrscheinlich je nach Setup angepasst werden, insbesondere die Pfade zum Code-Repository und HuggingFace-Modellen. Das Image selbst kann mit dem Dockerfile im Projektverzeichnis gebaut werden innerhalb des Ordners mit dem Dockerfile:
+
+```bash
+docker build -t {IMAGE_NAME} .
+```
+
 ## Konfiguration
 
 Profile werden über `--profile` oder `LLM_ROUTING_PROFILE` gewählt.
