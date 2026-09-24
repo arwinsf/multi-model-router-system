@@ -4,7 +4,15 @@ Ersetzt die offline VLLMInference.generate()/generate_batch() durch HTTP-Calls
 an laufende vLLM-Server. Unterstützt per-Request Thinking/Reasoning-Toggle.
 
 Thinking-Steuerung per Request:
-    extra_body={"chat_template_kwargs": {"enable_thinking": True/False}}
+    {"chat_template_kwargs": {"enable_thinking": True/False}} auf oberster
+    Ebene des JSON-Bodys.
+
+Hinweis: ``extra_body`` ist ein Parameter des OpenAI-Python-SDK, der seinen
+Inhalt clientseitig in die oberste Ebene des Requests einmischt. Dieser Client
+sendet das JSON direkt per httpx; ein Schlüssel ``"extra_body"`` käme bei vLLM
+als unbekanntes Feld an und würde ignoriert. vLLM-spezifische Parameter
+(``top_k``, ``min_p``, ``repetition_penalty``, ``chat_template_kwargs``) gehören
+deshalb direkt in den Body.
 """
 
 import json
@@ -234,13 +242,13 @@ class VLLMClient:
             "presence_penalty": pp,
             "stream": True,
             "stream_options": {"include_usage": True},
-            "extra_body": {
-                "repetition_penalty": self.repetition_penalty,
-                "top_k": self.top_k if self.top_k > 0 else -1,
-                "min_p": self.min_p,
-                "chat_template_kwargs": {
-                    "enable_thinking": enable_thinking,
-                },
+            # vLLM-spezifische Felder direkt auf oberster Ebene (kein
+            # "extra_body" -- das ist nur eine Konvention des OpenAI-SDK).
+            "repetition_penalty": self.repetition_penalty,
+            "top_k": self.top_k if self.top_k > 0 else -1,
+            "min_p": self.min_p,
+            "chat_template_kwargs": {
+                "enable_thinking": enable_thinking,
             },
         }
 
